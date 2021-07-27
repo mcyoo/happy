@@ -20,11 +20,12 @@ class App extends React.Component {
   }
 
   setIntervel_func(word) {
-    const intervalID = setInterval(() => {
-      var message = this.state.message;
-
-      message.push(word);
-      this.setState({ message, intervalID });
+    const timeoutID = setTimeout(() => {
+      const intervalID = setInterval(() => {
+        var message = this.state.message;
+        message.push(word);
+        this.setState({ message, intervalID });
+      }, 1000);
     }, 1000);
   }
 
