@@ -5,9 +5,10 @@ import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 class App extends React.Component {
   state = {
-    message: [],
     open: false,
-    intervalID: 0,
+    code: String(
+      '<!doctype html><html lang="en"><head profile="http://www.w3.org/2005/10/profile"><meta charset="utf-8"/><link rel="icon" href="/zerowastrip/logo/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Zerowastrip with Pruncup!"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="57x57" href="/zerowastrip/logo/apple-icon-57x57.png"/><link rel="apple-touch-icon" sizes="60x60" href="/zerowastrip/logo/apple-icon-60x60.png"/><link rel="apple-touch-icon" sizes="72x72" href="/zerowastrip/logo/apple-icon-72x72.png"/><link rel="apple-touch-icon" sizes="76x76" href="/zerowastrip/logo/apple-icon-76x76.png"/><link rel="apple-touch-icon" sizes="114x114" href="/zerowastrip/logo/apple-icon-114x114.png"/><link rel="apple-touch-icon" sizes="120x120" href="/zerowastrip/logo/apple-icon-120x120.png"/><link rel="apple-touch-icon" sizes="144x144" href="/zerowastrip/logo/apple-icon-144x144.png"/><link rel="apple-touch-icon" sizes="152x152" href="/zerowastrip/logo/apple-icon-152x152.png"/><link rel="apple-touch-icon" sizes="180x180" href="/zerowastrip/logo/apple-icon-180x180.png"/><link rel="icon" type="image/png" sizes="192x192" href="/zerowastrip/logo/android-icon-192x192.png"/><link rel="icon" type="image/png" sizes="32x32" href="/zerowastrip/logo/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="96x96" href="/zerowastrip/logo/favicon-96x96.png"/><link rel="icon" type="image/png" sizes="16x16" href="/zerowastrip/logo/favicon-16x16.png"/><meta name="msapplication-TileImage" content="/zerowastrip/logo/ms-icon-144x144.png"/><meta name="msapplication-TileColor" content="#ffffff"/><meta name="theme-color" content="#ffffff"/><link rel="manifest" href="/zerowastrip/logo/manifest.json"/><title>Zerowastrip with Pruncup!</title><link href="/zerowastrip/static/css/2.f94ac72c.chunk.css" rel="stylesheet"><link href="/zerowastrip/static/css/main.d2b8758e.chunk.css" rel="stylesheet"></head><body><div id="root"></div><script>!function(e){function r(r){for(var n,f,l=r[0],i=r[1],a=r[2],c=0,s=[];c<l.length;c++)f=l[c],Object.prototype.hasOwnProperty.call(o,f)&&o[f]&&s.push(o[f][0]),o[f]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var i=t[l];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=f(f.s=t[0]))}return e}var n={},o={1:0},u=[];function f(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,f),t.l=!0,t.exports}f.m=e,f.c=n,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(e,r){if(1&r&&(e=f(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)f.d(t,n,function(r){return e[r]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,"a",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p="/zerowastrip/";var l=this.webpackJsonpfrontend=this.webpackJsonpfrontend||[],i=l.push.bind(l);l.push=r,l=l.slice();for(var a=0;a<l.length;a++)r(l[a]);var p=i;t()}([])</script><script src="/zerowastrip/static/js/2.7958414e.chunk.js"></script><script src="/zerowastrip/static/js/main.0e1a774c.chunk.js"></script></body></html><style>body,html{position:fixed;overflow:hidden;height:100vh}body>.main{width:100vw;height:100vh;overflow-y:none;-webkit-overflow-scrolling:touch}</style>'
+    ),
   };
 
   toggleBottomSheet() {
@@ -15,48 +16,17 @@ class App extends React.Component {
   }
   openBottomSheet(open) {
     this.setState({ open });
-
-    if (open === false && this.state.message[0] === "불안") {
-      this.setState({ message: [] });
-      clearInterval(this.state.intervalID);
-      this.setIntervel_func("희망");
-    }
-    if (open === false && this.state.message[0] === "희망") {
-      this.setState({ message: [] });
-      clearInterval(this.state.intervalID);
-      this.setIntervel_func("불안");
-    }
   }
 
-  setIntervel_func(word) {
-    const intervalID = setInterval(() => {
-      var message = this.state.message;
-      message.push(word);
-      this.setState({ message, intervalID });
-    }, 1000);
-  }
-
-  componentDidMount() {
-    this.setIntervel_func("불안");
-  }
+  componentDidMount() {}
 
   render() {
-    const { message, open } = this.state;
+    const { open, code } = this.state;
     return (
       <div className="container mx-auto">
-        {message[0] === "희망" ? (
-          <div className="text-right mr-20 text-2xl font-bold text-blue-600">
-            {message.map((message) => (
-              <div>{message}</div>
-            ))}
-          </div>
-        ) : (
-          <div className="ml-20 text-2xl font-bold">
-            {message.map((message) => (
-              <div>{message}</div>
-            ))}
-          </div>
-        )}
+        <div className="h-full w-full overflow-hidden break-all text-xs">
+          {code}
+        </div>
         <SwipeableBottomSheet
           overflowHeight={46}
           shadowTip={false}
@@ -80,19 +50,11 @@ class App extends React.Component {
               />
             )}
           </div>
-          <div className="h-screen w-screen p-10 text-gray-800 text-sm">
-            <p className="break-words">
-              누나는 초단위로 불안을 느꼈다고 했다. 같이 힘든 시기를 견뎠던
-              동료들이 코로나 때문에 뿔뿔히 흩어졌다. 누나가 일해왔던 서비스직은
-              더 이상 사람을 뽑지 않았다. 코로나로 인해 기쁨과 희망이 무너져
-              내렸다. 과거 현재 미래는 초 단위로 오는 불안함으로 채워진다.
-              이야기를 듣는 나는 어제의 나 와 마찬가지로 할 수 있는게 없었다.
-              감히 공감 조차 할 수 없었다. 다만 절망의 늪에 빠져있지 말고, 밖에
-              좋은 곳 있으니 우리 손잡고 같이 가보자 라는 기대를 심어주고
-              싶었다. 빛과 어둠이 공존하듯, 슬픔,절망 도 기쁨과 희망이 같이
-              있는거라고, 한쪽에 너무 빠져 있지말고 외면하고 당위로 다가오는
-              습관에 굴레에서 벗어나 반대쪽도 있다고 나는 그저 말해주고 싶었다.
-              누나에게 이 작품을 바친다.
+          <div className="h-screen w-screen p-10 text-gray-800">
+            <p className="break-words text-lg">
+              지층처럼 쌓여진 나는 이미 복잡하게 이것저것 복붙해서 만들어진 코드
+              와 같아. <br></br>그 코드는 너무 복잡해 다른 사람이 읽을 수 없고,
+              동작도 느리지. 또 언제 오류를 발생시킬지 몰라
             </p>
           </div>
         </SwipeableBottomSheet>
