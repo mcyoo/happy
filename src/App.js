@@ -23,8 +23,8 @@ class App extends React.Component {
   render() {
     const { open, code } = this.state;
     return (
-      <div className="container mx-auto">
-        <div className="h-full w-full overflow-hidden break-all text-xs">
+      <div className="container mx-auto bg-black-600 bg-gray-800">
+        <div className="overflow-hidden break-all text-xs font-mono text-white font-medium">
           {code}
         </div>
         <SwipeableBottomSheet
@@ -50,11 +50,12 @@ class App extends React.Component {
               />
             )}
           </div>
-          <div className="h-screen w-screen p-10 text-gray-800">
-            <p className="break-words text-lg">
+          <div className="h-screen w-screen p-10 text-gray-600 flex justify-center items-center">
+            <p className="break-words text-lg font-semibold">
               지층처럼 쌓여진 나는 이미 복잡하게 이것저것 복붙해서 만들어진 코드
-              와 같아. <br></br>그 코드는 너무 복잡해 다른 사람이 읽을 수 없고,
-              동작도 느리지. 또 언제 오류를 발생시킬지 몰라
+              와 같아<br></br>
+              <br></br>그 코드는 너무 복잡해 다른 사람이 읽을 수도 없고, 동작도
+              느리지. <br></br>또, 언제 오류를 발생시킬지 몰라
             </p>
           </div>
         </SwipeableBottomSheet>
