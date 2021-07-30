@@ -27,38 +27,40 @@ class App extends React.Component {
         <div className="overflow-hidden break-all text-xs font-mono text-white font-medium">
           {code}
         </div>
-        <SwipeableBottomSheet
-          overflowHeight={46}
-          shadowTip={false}
-          topShadow={false}
-          open={open}
-          onChange={this.openBottomSheet.bind(this)}
-          bodyStyle={{}}
-        >
-          <div className="text-center">
-            {open ? (
-              <FontAwesomeIcon
-                icon={faAngleDown}
-                className="mt-1 text-3xl md:text-4xl opacity-50 mb-2"
-                onClick={this.toggleBottomSheet.bind(this)}
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon={faAngleUp}
-                className="mt-1 text-3xl md:text-4xl opacity-50 mb-2"
-                onClick={this.toggleBottomSheet.bind(this)}
-              />
-            )}
-          </div>
-          <div className="h-screen w-screen p-10 text-gray-600 flex justify-center items-center">
-            <p className="break-words text-lg font-semibold">
-              지층처럼 쌓여진 나는 이미 복잡하게 이것저것 복붙해서 만들어진 코드
-              와 같아<br></br>
-              <br></br>그 코드는 너무 복잡해 다른 사람이 읽을 수도 없고, 동작도
-              느리지. <br></br>또, 언제 오류를 발생시킬지 몰라
-            </p>
-          </div>
-        </SwipeableBottomSheet>
+        <div>
+          <SwipeableBottomSheet
+            overflowHeight={46}
+            shadowTip={false}
+            topShadow={false}
+            open={open}
+            onChange={this.openBottomSheet.bind(this)}
+            fullScreen
+          >
+            <div className="text-center">
+              {open ? (
+                <FontAwesomeIcon
+                  icon={faAngleDown}
+                  className="mt-1 text-3xl md:text-4xl opacity-50 mb-2"
+                  onClick={this.toggleBottomSheet.bind(this)}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faAngleUp}
+                  className="mt-1 text-3xl md:text-4xl opacity-50 mb-2"
+                  onClick={this.toggleBottomSheet.bind(this)}
+                />
+              )}
+            </div>
+            <div className="p-10 text-gray-600 flex justify-center items-center">
+              <p className="break-words text-md font-semibold mt-24">
+                지층처럼 쌓여진 나는 이미 복잡하게 이것저것 복붙해서 만들어진
+                코드 와 같아<br></br>
+                <br></br>그 코드는 너무 복잡해 다른 사람이 읽을 수도 없고,
+                동작도 느리지. <br></br>또, 언제 오류를 발생시킬지 몰라
+              </p>
+            </div>
+          </SwipeableBottomSheet>
+        </div>
       </div>
     );
   }
