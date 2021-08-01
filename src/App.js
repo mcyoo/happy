@@ -3,6 +3,7 @@ import SwipeableBottomSheet from "react-swipeable-bottom-sheet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import macgu from './assets/img/macgu.gif'
+import happy from './assets/img/happy.gif'
 
 class App extends React.Component {
   state = {
@@ -21,10 +22,8 @@ class App extends React.Component {
   render() {
     const { open, code } = this.state;
     return (
-      <div className="container">
-        <div className="flex flex-col justify-center items-center h-screen w-screen">
-          <img className="object-none object-center" src={macgu} alt="loading..." />
-          </div>
+      <div className="">
+          <img className="h-screen w-screen" src={happy} alt="loading..." />
         <div>
           <SwipeableBottomSheet
             overflowHeight={46}
@@ -51,7 +50,7 @@ class App extends React.Component {
             </div>
             <div className="text-gray-600">
               <p className="break-words text-lg font-semibold text-center mt-64">
-               맥주 한잔 크으!ㄱ
+               우오아ㅏ아ㅏㅏㅏ아ㅏㅏ아ㅏ아ㅏ아ㅏㅏㅏㅏ
               </p>
             </div>
           </SwipeableBottomSheet>
